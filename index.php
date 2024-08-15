@@ -15,14 +15,20 @@
 
 if (isset($_GET['error_msg'])){   // extract the message from url
 
-    echo "<h4 class='text-danger'>" . htmlspecialchars($_GET['error_msg']) . "</h4>";
+    echo "<h4 class='text-danger'>" . htmlspecialchars($_GET['error_msg']) . "</h4>";  //dot is for cancat
+
+  }
+
+  if (isset($_GET['error_msg2'])){   // extract the message from url
+
+    echo "<h4 class='text-danger'>" . htmlspecialchars($_GET['error_msg2']) . "</h4>";  //dot is for cancat
 
   }
 
 ?>
 
       <div class="login-container">
-    <h2>wellcome back</h2>
+    <h2>Login to Your Account</h2>
     <form action="process/login_process.php" method="post">
 
         <div class="form-group">

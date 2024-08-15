@@ -38,7 +38,7 @@ session_start();
              header('location: ../home.php');
           }
           else{
-            header('location: ../index.php?error_msg=Incorrect_username_or_password'); //trow the mesaage from url
+            header('location: ../index.php?error_msg=Incorrect username or password'); //trow the mesaage from url
           }
 
      }
