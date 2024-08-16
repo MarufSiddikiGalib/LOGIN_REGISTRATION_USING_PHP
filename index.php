@@ -25,6 +25,15 @@ if (isset($_GET['error_msg'])){   // extract the message from url
 
   }
 
+  // message from insert.php
+  if(isset($_GET['success_msg'])){
+
+   echo "<h6 class='text-danger'>" . htmlspecialchars($_GET['success_msg']) . "</h6>";
+  }
+
+
+
+
 ?>
 
       <div class="login-container">
@@ -42,6 +51,9 @@ if (isset($_GET['error_msg'])){   // extract the message from url
         </div>
 
         <button type="submit" name= "login" class="btn">Login</button>
+
+        <a href="resister.php" class = "btn2" >Resister now</a> 
+
     </form>
 </div>
 

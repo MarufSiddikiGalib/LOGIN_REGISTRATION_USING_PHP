@@ -24,7 +24,8 @@ session_start();
        }
 
        
-       $query = "SELECT * FROM `users` WHERE `username` = '$username' AND `password` = '$password'";
+       $query = "SELECT * FROM `info` WHERE `username` = '$username' AND `password` = '$password'";
+       
        $result = mysqli_query($con, $query);
 
        if(!$result){
