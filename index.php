@@ -13,19 +13,21 @@
     
 <?php 
 
-if (isset($_GET['error_msg'])){   // extract the message from url
+// Get message from url. message threw from login_process.php
+if (isset($_GET['error_msg'])){   
 
     echo "<h4 class='text-danger'>" . htmlspecialchars($_GET['error_msg']) . "</h4>";  //dot is for cancat
 
   }
 
-  if (isset($_GET['error_msg2'])){   // extract the message from url
+  // Get message from url. message threw from insert.php
+  if (isset($_GET['error_msg2'])){   
 
     echo "<h4 class='text-danger'>" . htmlspecialchars($_GET['error_msg2']) . "</h4>";  //dot is for cancat
 
   }
 
-  // message from insert.php
+  // Get message from url. message threw from insert.php
   if(isset($_GET['success_msg'])){
 
    echo "<h6 class='text-danger'>" . htmlspecialchars($_GET['success_msg']) . "</h6>";

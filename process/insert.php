@@ -2,6 +2,7 @@
 
 <?php 
 
+   //select resister using POST method
    if (isset($_POST['resister'])){
 
         $firstname = $_POST['firstname'];
@@ -12,6 +13,7 @@
         $dob = $_POST['dob'];
         $password = $_POST['password'];
 
+        // Insert the user into the database
         $query = "INSERT INTO `info` (`first_name`, `last_name`, `username` , `mobile_number` , `email` , `dob` , `Password`) VALUES ('$firstname', '$lastname', '$username' , '$mobile' , '$email' , '$dob' , '$password ')";
 
         $result = mysqli_query($con, $query);
@@ -21,7 +23,7 @@
         }
         
         else{
-
+            //Throw success message to the url and open to index.php
             header("location: ../index.php?success_msg=Resistration complete. please login" );
         }
 

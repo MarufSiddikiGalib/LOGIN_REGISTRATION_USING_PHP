@@ -102,3 +102,9 @@ label {
         padding: 50px 60px;
     }
 }
+
+.error {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}

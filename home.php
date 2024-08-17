@@ -13,13 +13,15 @@ session_start() // session underscore start.
 <body>
     
     <?php 
-    
+          //Displaying wellcome message with session variable
+          //if we use session variable any time we have to start the seation must
           if(isset($_SESSION['username'])){
 
-              echo "<h3>wellcome " . $_SESSION['username'] . "</h3>";  //if we use session variable any time we have to start the seation must
+              echo "<h3>wellcome " . $_SESSION['username'] . "</h3>"; 
 
           }
           else{
+            //Throw error message to the url and open to index.php
             header('location: index.php?error_msg2=please login to enter the site');
           }
     

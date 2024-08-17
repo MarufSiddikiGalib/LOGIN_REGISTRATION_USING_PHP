@@ -1,23 +1,15 @@
+
+
 <?php 
+//Distroying session
 include('../config/dbcon.php'); 
 session_start();
-session_unset();
+
+//Have to unset session before destrying
+session_unset();  
 session_destroy();
+
+//Change the header location to index.php after distroying the session
 header('location: ../index.php');
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-       
-
-     
-
-</body>
-</html>

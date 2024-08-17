@@ -1,16 +1,18 @@
-
+<?php 
+include('process/resister_requirement.php'); 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Resistration</title>
     <link rel="stylesheet" href="style/style2.css">
 </head>
 <body>
     
-    <form action="process/insert.php" method="post">
+    <form action="" method="post">
             <div class="form-group">
                 <label for="firstname">First Name</label>
                 <input type="text" id="firstname" name="firstname" required>

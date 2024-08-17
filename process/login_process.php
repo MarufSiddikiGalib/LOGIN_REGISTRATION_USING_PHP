@@ -15,31 +15,35 @@ session_start();
 
 
 <?php
-
-       if (isset($_POST['login'])){ //select login
+       //select login using POST method
+       if (isset($_POST['login'])){ 
 
       $username = $_POST['username'];
       $password = $_POST['password'];
 
        }
 
-       
+       //Select login info from database
        $query = "SELECT * FROM `info` WHERE `username` = '$username' AND `password` = '$password'";
        
        $result = mysqli_query($con, $query);
 
        if(!$result){
-        die("query Failed".mysqli_error($con)); //display error in proper way
+         //Display error in proper way
+        die("query Failed".mysqli_error($con));
      }
-     else{
+     else{ 
+          //Selecting row
           $row = mysqli_num_rows($result);
 
+          //Get username with the session variable and change the directory to home.php
           if($row == 1){
              $_SESSION['username'] = $username;
              header('location: ../home.php');
           }
           else{
-            header('location: ../index.php?error_msg=Incorrect username or password'); //trow the mesaage from url
+            //Throw error message to the url and change the directory to index.php
+            header('location: ../index.php?error_msg=Incorrect username or password'); 
           }
 
      }
