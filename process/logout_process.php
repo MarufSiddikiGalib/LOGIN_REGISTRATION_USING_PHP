@@ -10,6 +10,6 @@ session_unset();
 session_destroy();
 
 //Change the header location to index.php after distroying the session
-header('location: ../index.php');
+header('location:../index.php');
 ?>
 

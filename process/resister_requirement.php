@@ -1,4 +1,6 @@
 <?php
+ include('config/dbcon.php');  
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect and sanitize input
     $firstname = clean_input($_POST["firstname"]);
@@ -55,13 +57,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // If no errors, proceed with registration
     if (empty($errors)) {
-        //Here we can hash the password before storing it
 
 
-        //Change the directory to insert.php
-        header('location:insert.php');
+
+    
+        //Hashing the password before storing it
+        //password_hash is a inbuild function
+        //PASSWORD_BCRYPT is the hashing algorithm
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+
+        // Insert the user into the database
+        $query = "INSERT INTO `info` (`first_name`, `last_name`, `username` , `mobile_number` , `email` , `dob` , `Password`) VALUES ('$firstname', '$lastname', '$username' , '$mobile' , '$email' , '$dob' , '$hashedPassword')";
+
+        $result = mysqli_query($con, $query);
+
+        if(!$result){
+            die ("Query failed" . mysqli_error($con));
+        }
+        
+        else{
+            //Throw success message to the url and open to index.php
+            header("location:index.php?success_msg=Resistration complete. please login" );
+        }
 
         
+        //Change the directory to insert.php
+        //header("location:process/insert.php");
+
+        
+
+
+
+
         
     } else {
         // Display errors

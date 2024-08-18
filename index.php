@@ -33,6 +33,12 @@ if (isset($_GET['error_msg'])){
    echo "<h6 class='text-danger'>" . htmlspecialchars($_GET['success_msg']) . "</h6>";
   }
 
+  // Get message from url. message threw from reset_process.php
+  if(isset($_GET['error_msg3'])){
+
+    echo "<h6 class='text-danger'>" . htmlspecialchars($_GET['error_msg3']) . "</h6>";
+   }
+
 
 
 
@@ -55,6 +61,8 @@ if (isset($_GET['error_msg'])){
         <button type="submit" name= "login" class="btn">Login</button>
 
         <a href="resister.php" class = "btn2" >Resister now</a> 
+        <br>
+        <a href="password_reset.php" class = "btn2" >Forgot Password?</a>
 
     </form>
 </div>

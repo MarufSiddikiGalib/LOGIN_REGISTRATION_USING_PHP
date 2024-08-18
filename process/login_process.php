@@ -21,32 +21,61 @@ session_start();
       $username = $_POST['username'];
       $password = $_POST['password'];
 
-       }
+       
 
        //Select login info from database
-       $query = "SELECT * FROM `info` WHERE `username` = '$username' AND `password` = '$password'";
+       //$query = "SELECT * FROM `info` WHERE `username` = '$username' AND `password` = '$password'";
+       $query = "SELECT * FROM `info` WHERE `username` = '$username'";
        
+       
+      
+
        $result = mysqli_query($con, $query);
 
        if(!$result){
          //Display error in proper way
         die("query Failed".mysqli_error($con));
      }
-     else{ 
+     
           //Selecting row
-          $row = mysqli_num_rows($result);
+          
+          if(mysqli_num_rows($result) === 1){
+            
+            // Fetch the user data
+            $row = mysqli_fetch_assoc($result);
 
-          //Get username with the session variable and change the directory to home.php
-          if($row == 1){
+             //Varify from hashed password
+             //password_verify is an in built function
+             $hashedPassword = $row['password'];
+       
+
+             //Given password checked with the hashedPassword
+            if(password_verify($password, $hashedPassword)){
+
+             //Get username with the session variable and change the directory to home.php
              $_SESSION['username'] = $username;
              header('location: ../home.php');
-          }
+             exit();
+             }
+
+             else{
+               //Throw error message to the url and change the directory to index.php
+               header('location: ../index.php?error_msg=Incorrect username or password'); 
+               exit();
+             }
+
+            }
+
+         
+       
           else{
             //Throw error message to the url and change the directory to index.php
             header('location: ../index.php?error_msg=Incorrect username or password'); 
-          }
-
-     }
+            exit();
+         }
+      }
+       
+     
 ?>
 
 
