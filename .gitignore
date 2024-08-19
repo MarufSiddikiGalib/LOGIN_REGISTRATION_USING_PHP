@@ -1,0 +1,10 @@
+# Ignore specific files
+
+vendor
+PHPMailer
+
+vendor/
+PHPMailer/
+
+composer.json
+composer.lock

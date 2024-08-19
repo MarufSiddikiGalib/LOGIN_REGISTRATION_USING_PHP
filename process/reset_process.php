@@ -34,7 +34,7 @@ use League\OAuth2\Client\Provider\Google;
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     
             // OAuth 2.0 settings
-            
+           
             //$email = 'noreply06969@gmail.com';
     
             $provider = new Google([
@@ -51,23 +51,26 @@ use League\OAuth2\Client\Provider\Google;
             ]));
     
             // Recipients
-            $mail->setFrom('noreply06969@gmail.com', '');
-            $mail->addAddress($toEmail); // Add a recipient
+            $mail->setFrom('noreply06969@gmail.com', 'MSGALIB');
+            $mail->addAddress($email); // Add a recipient
     
             // Content
             $mail->isHTML(true);
-            $mail->Subject = $subject;
-            $mail->Body = $body;
+            $mail->Subject = "Password reset link";
+            $mail->Body = "We got a request from you to reset your password <br>
+            Click the link bellow: <br>
+            <a href='http://localhost/login_system/update_password.php?email=$email&reset_token=$reset_token'  >Reset your pasword</a>
+            ";
     
             $mail->send();
-            echo 'Message has been sent';
+            return true; // Email sent successfully
         } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            return false; // Email failed to send
         }
     
-    
+ 
     // Example usage
-    sendEmail('recipient@example.com', 'Test Email Subject', 'This is the email body content.');
+    //sendEmail('recipient@example.com', 'Test Email Subject', 'This is the email body content.');
     
 
 
