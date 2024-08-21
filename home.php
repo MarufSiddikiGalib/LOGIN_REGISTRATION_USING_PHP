@@ -21,7 +21,7 @@ session_start() // session underscore start.
 
           }
           else{
-            //Throw error message to the url and open to index.php
+            //Throw error message to the url and show the message to index.php
             header('location: index.php?error_msg2=please login to enter the site');
           }
     

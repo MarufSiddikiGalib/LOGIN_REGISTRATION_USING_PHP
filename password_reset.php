@@ -22,13 +22,13 @@
 
         // Get message from url. message threw from reset_process.php
         if(isset($_GET['error_msg3'])){
-            echo "<h6 class='text-danger'>" . htmlspecialchars($_GET['error_msg3']) . "</h6>";
+            echo "<h5 class='text-danger'>" . htmlspecialchars($_GET['error_msg3']) . "</h5>";
         }
 
-          // Get message from url. message threw from reset_process.php
-          if(isset($_GET['error_msg5'])){
-            echo "<h6 class='text-success'>" . htmlspecialchars($_GET['error_msg5']) . "</h6>";
-        }
+        //   // Get message from url. message threw from reset_process.php
+        //   if(isset($_GET['error_msg5'])){
+        //     echo "<h6 class='text-success'>" . htmlspecialchars($_GET['error_msg4']) . "</h6>";
+        // }
         ?>
     </div>
 </body>

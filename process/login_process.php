@@ -23,13 +23,13 @@ session_start();
 
        
 
-       //Select login info from database
+       //Select login info from database using my sql query
        //$query = "SELECT * FROM `info` WHERE `username` = '$username' AND `password` = '$password'";
        $query = "SELECT * FROM `info` WHERE `username` = '$username'";
        
        
       
-
+      //Executing the query
        $result = mysqli_query($con, $query);
 
        if(!$result){
@@ -38,7 +38,6 @@ session_start();
      }
      
           //Selecting row
-          
           if(mysqli_num_rows($result) === 1){
             
             // Fetch the user data
